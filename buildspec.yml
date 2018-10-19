@@ -1,24 +1,7 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      - git config --global url."https://${GITHUB_ACCESS_TOKEN}:x-oauth-basic@github.com/".insteadOf "ssh://git@github.com/"
-      - NODE_ENV=test npm install
 
   build:
     commands:
-      - npm run build
-
-  # post_build:
-  #   commands:
-  #     - |
-  #       echo running tests
-  #       npm run verify
-  #     - |
-  #       if [ "$GIT_BRANCH" = "dev" ] || [ "$GIT_BRANCH" = "master" ]; then
-  #         echo uploading cloudformation template
-  #         aws s3 cp \
-  #           infra/template.json \
-  #           s3://$CFN_ARTIFACT_LOCATION/$GIT_REPO/template.json
-  #       fi
+      - echo "building..."
