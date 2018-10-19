@@ -1,8 +1,35 @@
 version: 0.2
 
+# env:
+#   variables:
+#     CF_DISTRIBUTON_ID:
+
 phases:
 
+  pre_build:
+    command:
+      - echo "building resumes..."
+
+  # generate all the resume versions
+  # TODO: make this rescursive
   build:
     commands:
-      - echo "building..."
+      # html 
+      # TODO: (checkout number 3 at the follow link: https://pandoc.org/demos.html)
       - pandoc ./src/resumes/resume.md -f markdown -t html -s -o ./public/resume.html
+      # docx
+      - pandoc ./src/resumes/resume.md -f markdown -t docx -o ./public/resume.docx
+      # pdf
+      - pandoc ./src/resumes/resume.md -f markdown -t tex -o ./public/resume.tex
+      # pdf (tex)
+
+  # upload all the build resume's to s3
+  # post_build:
+  #   commands:
+  #     - aws s3 sync ./public s3://resume.cuffney.com --delete
+
+  # invalidate cloudfront
+  # finally:
+  #   commands:
+  #     # invalidate cloudfront
+  #     - aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTON_ID} --paths /*
