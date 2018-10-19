@@ -21,7 +21,7 @@ phases:
       # docx
       - pandoc ./src/resumes/resume.md -f markdown -t docx -o ./public/resume.docx
       # pdf
-      - pandoc ./src/resumes/resume.md -f markdown -t pdf -o ./public/resume.pdf
+      # - pandoc ./src/resumes/resume.md -f markdown -t pdf -o ./public/resume.pdf
       # rtf
       - pandoc ./src/resumes/resume.md -f markdown -t docx -o ./public/resume.rtf
       # tex
