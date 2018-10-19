@@ -2,6 +2,8 @@
 
 > Resume is versioned in markdown, and built into html, docx, plain text, and pdf formats using pandoc.
 
+https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiUVAvY0lqTTdTS1ROek9VVjZka2tSc1JFTFd4cWp5RWVpUE5PaDRqYVBKMFFBT0xLSzUrSVFEdmxabTlDdmV0bklFVDBoVGltZmRPQzdSTDBwK3dkaEF3PSIsIml2UGFyYW1ldGVyU3BlYyI6Im5rVHVKRmtlSFlYN3huR1IiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master
+
 ## Writing Resume Versions / Updating resumes. 
 
 1. Write your resume / updates in markdown within `src/resumes`.
