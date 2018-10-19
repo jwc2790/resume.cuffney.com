@@ -5,3 +5,4 @@ phases:
   build:
     commands:
       - echo "building..."
+      - pandoc ./src/resumes/resume.md -f markdown -t html -s -o ./public/resume.html
