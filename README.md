@@ -39,6 +39,8 @@
 
 `aws ecr --profile cuffney create-repository --repository-name cuffney/resume`
 
+NOTE: you'll need to add permissions to the ECR repository so that codebuild has access to pull the image. Follow the instructions here to do so: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-ecr.html
+
 1. Tag the image:
 
 `docker tag <Docker Image Id> 255964265911.dkr.ecr.us-east-1.amazonaws.com/cuffney/resume:latest`
@@ -46,3 +48,20 @@
 2. Push the image to ECR:
 
 `docker push 255964265911.dkr.ecr.us-east-1.amazonaws.com/cuffney/resume:latest`
+
+## Notes
+
+#### Open Questions
+- Would it be better to write everything in .tex and cover from that format?
+
+#### Yet to do
+- Should work recursivlely within `src/resume`
+- Should also be able to do cover letters.
+- Should auto deploy to static site (resume.cuffney.com)
+
+#### Future Use Cases
+
+- Autogenerate Letters
+- Template out either tex or markdown and invoke the build via AWS Lambda
+  - Auto generate letters
+    - Christmas Letters

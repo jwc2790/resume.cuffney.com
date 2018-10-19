@@ -16,7 +16,7 @@ Education
 Experience
 ----------
 
-**Your Most Recent Work Experience:**
+**Senior Software Engineer at Nike:**
 
 Short text containing the type of work done, results obtained,
 lessons learned and other remarks. Can also include lists and
@@ -27,14 +27,14 @@ links:
 * Item with [link](http://www.example.com). Links will work both in
   the html and pdf versions.
 
-**That Other Job You Had**
+**Technical Lead at The Program PDX:**
 
 Also with a short description.
 
 Technical Experience
 --------------------
 
-My Cool Side Project
+DiGuiseppe Recipes
 :   For items which don't have a clear time ordering, a definition
     list can be used to have named items.
 

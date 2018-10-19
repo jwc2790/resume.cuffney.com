@@ -7,7 +7,8 @@ RUN apt-get update \
 # isntall packages
 RUN apt-get install -y \
     pandoc \
-    python-pip
+    python-pip \ 
+    texlive-latex-recommended
 
 # install aws-sdk (uses pip)
 RUN pip install awscli --upgrade --user
