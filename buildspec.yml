@@ -1,10 +1,5 @@
 version: 0.2
 
-# env:
-#   variables:
-#     CF_DISTRIBUTON_ID:
-#     S3_BUCKET_NAME: 
-
 phases:
 
   pre_build:
@@ -12,7 +7,6 @@ phases:
       - echo "building resumes..."
 
   # generate all the resume versions
-  # TODO: make this rescursive within `src/resumes`
   build:
     commands:
       # html 
@@ -27,12 +21,5 @@ phases:
       # tex (not currently working)
       # - pandoc ./src/resumes/resume.md -f markdown -t tex -o ./public/resume.tex
 
-  # upload all the build resume's to s3
-  # post_build:
-  #   commands:
-  #     - aws s3 sync ./public s3://resume.cuffney.com --delete
-
-  # invalidate cloudfront
-  # finally:
-  #   commands:
-  #     - aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTON_ID} --paths /*
+      # TODO: convert .tex --> .md
+      # - pandoc ./src/resumes/resume.tex -f tex -t docx -o ./public/resume.md

@@ -67,3 +67,4 @@ NOTE: you'll need to add permissions to the ECR repository so that codebuild has
 - Template out either tex or markdown and invoke the build via AWS Lambda
   - Auto generate letters
     - Christmas Letters
+- Project List
