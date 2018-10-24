@@ -22,4 +22,8 @@ phases:
       # - pandoc ./src/resumes/resume.md -f markdown -t tex -o ./public/resume.tex
 
       # TODO: convert .tex --> .md
-      # - pandoc ./src/resumes/resume.tex -f tex -t docx -o ./public/resume.md
+      # - pandoc ./src/resumes/resume.tex -f tex -t markdown -o ./public/resume.md
+      # - pandoc ./resume.tex -f tex -t markdown -o ./resume.md
+
+      # this worked
+      # pandoc ./resume.latex -f latex -o ./test.pdf
