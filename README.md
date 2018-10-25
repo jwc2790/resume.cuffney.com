@@ -33,6 +33,10 @@
 
 `docker build . -t cuffney/resume:latest`
 
+#### Running the image Locally to Test
+
+`docker run -it cuffney/resume:latest /bin/bash`
+
 #### Uploading to AWS ECR
 
 0. Authenticate with ECR and create the repository if it dosen't exist already.
@@ -47,7 +51,7 @@ NOTE: you'll need to add permissions to the ECR repository so that codebuild has
 
 `docker tag <Docker Image Id> 255964265911.dkr.ecr.us-east-1.amazonaws.com/cuffney/resume:latest`
 
-2. Push the image to ECR:
+1. Push the image to ECR:
 
 `docker push 255964265911.dkr.ecr.us-east-1.amazonaws.com/cuffney/resume:latest`
 

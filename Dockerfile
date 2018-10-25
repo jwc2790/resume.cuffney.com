@@ -7,7 +7,9 @@ RUN apt-get update \
 COPY src/ /tmp/
 
 # isntall packages
-RUN apt-get install -y \
+RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get install -yq \
+    awscli \
     pandoc \
     python-pip \
     texlive-latex-recommended \ 
