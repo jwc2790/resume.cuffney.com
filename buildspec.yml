@@ -10,7 +10,7 @@ phases:
     commands:
 
       # from markdown --> *
-      - pandoc ./src/resume.md -f markdown -o ./public/resume.pdf
+      - pandoc ./src/resume.md -f markdown -o ./public/resume.html
       - pandoc ./src/resume.md -f markdown -o ./public/resume.docx
       - cp ./src/resume.md ./public/resume.md
 
