@@ -4,7 +4,7 @@ FROM ubuntu:latest
 RUN apt-get update \
   && apt-get upgrade -y
 
-COPY . /tmp/
+COPY ./resume.md /tmp/
 
 # isntall packages
 RUN DEBIAN_FRONTEND=noninteractive \

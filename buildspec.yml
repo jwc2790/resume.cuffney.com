@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  variables:
+    CF_DISTRIBUTON_ID: E1N7J4N30PZBSO
+
 phases:
 
   pre_build:
@@ -10,10 +14,10 @@ phases:
     commands:
 
       # from markdown --> *
-      - pandoc ./src/resume.md -f markdown -o ./public/resume.html
-      - pandoc ./src/resume.md -f markdown -o ./public/resume.docx
-      - cp ./src/resume.md ./public/resume.md
+      - pandoc ./resume.md -f markdown -o ./resume.html
+      - pandoc ./resume.md -f markdown -o ./resume.docx
 
   post_build:
     commands:
-      - aws s3 sync ./public s3://resume.cuffney.com  --delete
+      - aws s3 sync . s3://resume.cuffney.com  --delete
+      - aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTON_ID} --paths /*
