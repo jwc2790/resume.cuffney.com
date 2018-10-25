@@ -20,8 +20,7 @@ phases:
       # - pandoc ./src/resume/resume.latex -f latex -o ./resume.docx
       # - pandoc ./src/resume/resume.latex -f latex -o ./resume.md
 
-      
-      - pandoc ./src/resume/resume.tex -f tex -o ./resume.md
+      - pandoc ./src/resume/resume.tex --latex-engine=pdflatex -f tex -o ./resume.md
 
   post_build:
     commands:
