@@ -11,11 +11,12 @@ phases:
     commands:
       # html 
       # TODO: (checkout number 3 at the follow link: https://pandoc.org/demos.html)
-      - pandoc ./src/resumes/resume.md -f markdown -t html -s -o ./public/resume.html
+      - pandoc ./src/resumes/resume.md -f markdown -t html -s -o ./resume.html
       # docx
-      - pandoc ./src/resumes/resume.md -f markdown -t docx -o ./public/resume.docx
+      - pandoc ./src/resumes/resume.md -f markdown -t docx -o ./resume.docx
       # rtf
-      - pandoc ./src/resumes/resume.md -f markdown -t docx -o ./public/resume.rtf
+      - pandoc ./src/resumes/resume.md -f markdown -t docx -o ./resume.rtf
+
       # pdf (not currently working)
       # - pandoc ./src/resumes/resume.md -f markdown -t pdf -o ./public/resume.pdf
       # tex (not currently working)
@@ -26,6 +27,6 @@ phases:
       # - pandoc ./resume.tex -f tex -t markdown -o ./resume.md
 
       # this worked
-      # pandoc ./resume.latex -f latex -o ./test.pdf
+      - pandoc ./resume.latex -f latex -o ./test.pdf
 
       - aws s3 sync ./ s3://com.cuffney.resume  --delete
