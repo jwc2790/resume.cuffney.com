@@ -14,7 +14,7 @@ phases:
       # - pandoc ./src/resumes/resume.md -f markdown -t docx -o ./resume.docx
 
       # from latex
-      - pandoc ./test.latex -f latex -o ./test.pdf
+      - pandoc ./src/resumes/test.latex -f latex -o ./test.pdf
       # - pandoc ./resume.latex -f latex -o ./test.html
       # - pandoc ./resume.latex -f latex -o ./test.docx
       # - pandoc ./resume.latex -f latex -o ./test.md
