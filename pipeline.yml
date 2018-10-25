@@ -94,7 +94,7 @@ Resources:
       Environment:
         Type: LINUX_CONTAINER
         ComputeType: BUILD_GENERAL1_SMALL
-        Image: 255964265911.dkr.ecr.us-east-1.amazonaws.com/cuffney/resume
+        Image: 255964265911.dkr.ecr.us-east-1.amazonaws.com/cuffney/resume:latest
       Source:
         Auth:
           Type: OAUTH
