@@ -39,7 +39,7 @@
 
 #### Uploading to AWS ECR
 
-0. Authenticate with ECR and create the repository if it dosen't exist already.
+1. Authenticate with ECR and create the repository if it dosen't exist already.
 
 `$(aws ecr get-login --no-include-email --region us-east-1 --profile cuffney)`
 
@@ -47,11 +47,11 @@
 
 NOTE: you'll need to add permissions to the ECR repository so that codebuild has access to pull the image. Follow the instructions here to do so: https://docs.aws.amazon.com/codebuild/latest/userguide/sample-ecr.html
 
-1. Tag the image:
+2. Tag the image:
 
 `docker tag <Docker Image Id> 255964265911.dkr.ecr.us-east-1.amazonaws.com/cuffney/resume:latest`
 
-1. Push the image to ECR:
+3. Push the image to ECR:
 
 `docker push 255964265911.dkr.ecr.us-east-1.amazonaws.com/cuffney/resume:latest`
 

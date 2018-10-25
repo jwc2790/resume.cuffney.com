@@ -6,22 +6,14 @@ phases:
     command:
       - echo "building resume..."
 
-  # generate all the resume versions
   build:
     commands:
-      # from latex
-      # - pandoc ./src/resume/test.latex -f latex -o ./test.pdf
-      # - pandoc ./src/resume/test.latex -f latex -o ./test.html
-      # - pandoc ./src/resume/test.latex -f latex -o ./test.docx
-      # - pandoc ./src/resume/test.latex -f latex -o ./test.md
 
-      # - pandoc ./src/resume/resume.latex -f latex -o ./resume.pdf
-      # - pandoc ./src/resume/resume.latex -f latex -o ./resume.html
-      # - pandoc ./src/resume/resume.latex -f latex -o ./resume.docx
-      # - pandoc ./src/resume/resume.latex -f latex -o ./resume.md
-
-      - pandoc ./src/resume/resume.tex --latex-engine=pdflatex -f tex -o ./resume.md
+      # from markdown --> *
+      - pandoc ./src/resume.md -f markdown -o ./public/resume.pdf
+      - pandoc ./src/resume.md -f markdown -o ./public/resume.docx
+      - cp ./src/resume.md ./public/resume.md
 
   post_build:
     commands:
-      - aws s3 sync ./ s3://com.cuffney.resume  --delete
+      - aws s3 sync ./public s3://resume.cuffney.com  --delete
