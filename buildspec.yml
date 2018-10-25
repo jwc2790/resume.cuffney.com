@@ -9,20 +9,19 @@ phases:
   # generate all the resume versions
   build:
     commands:
-      # from markdown 
-      # - pandoc ./src/resume/resume.md -f markdown -t html -s -o ./resume.html
-      # - pandoc ./src/resume/resume.md -f markdown -t docx -o ./resume.docx
-
       # from latex
-      - pandoc ./src/resume/test.latex -f latex -o ./test.pdf
-      - pandoc ./src/resume/test.latex -f latex -o ./test.html
-      - pandoc ./src/resume/test.latex -f latex -o ./test.docx
-      - pandoc ./src/resume/test.latex -f latex -o ./test.md
+      # - pandoc ./src/resume/test.latex -f latex -o ./test.pdf
+      # - pandoc ./src/resume/test.latex -f latex -o ./test.html
+      # - pandoc ./src/resume/test.latex -f latex -o ./test.docx
+      # - pandoc ./src/resume/test.latex -f latex -o ./test.md
 
-      - pandoc ./src/resume/resume.latex -f latex -o ./resume.pdf
-      - pandoc ./src/resume/resume.latex -f latex -o ./resume.html
-      - pandoc ./src/resume/resume.latex -f latex -o ./resume.docx
-      - pandoc ./src/resume/resume.latex -f latex -o ./resume.md
+      # - pandoc ./src/resume/resume.latex -f latex -o ./resume.pdf
+      # - pandoc ./src/resume/resume.latex -f latex -o ./resume.html
+      # - pandoc ./src/resume/resume.latex -f latex -o ./resume.docx
+      # - pandoc ./src/resume/resume.latex -f latex -o ./resume.md
+
+      
+      - pandoc ./src/resume/resume.tex -f tex -o ./resume.md
 
   post_build:
     commands:
