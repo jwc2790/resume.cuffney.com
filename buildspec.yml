@@ -12,10 +12,9 @@ phases:
 
   build:
     commands:
-
       # from markdown --> *
-      - pandoc ./resume.md -f markdown -o ./public/resume.html
-      - pandoc ./resume.md -f markdown -o ./public/resume.docx
+      # - pandoc ./resume.md -f markdown -o ./public/resume.html
+      - pandoc ./resume.md -f markdown -o ./public/index.html
       - cp ./resume.md ./public/resume.md
 
   post_build:
