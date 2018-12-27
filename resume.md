@@ -99,11 +99,7 @@ page content.
 Docker, Craft CMS, and AWS. - Was responsible for writing 2 \[PHP\]
 craft cms plugins for both Twitter and Instagram integration into their
 news page.
-
-\employer{Contract}
-\location{Portland, OR}
-\dates{June 2016 - June 2016}
-\- Helped explain and implement a local startups VueJS webpack
+- Helped explain and implement a local startups VueJS webpack
 configuration and integrated it into their development and production
 build processes.
 - Illustrated use of plugins such as BrowserSync, ExtractTextPlugin, and
@@ -119,11 +115,7 @@ application.
 
 ##### Dec. 2016 - Present
 
-\employer{\href{http://discoverklamath.com}{Discover Klamath.}}
-\location{Portland, OR}
-\dates{Dec. 2016 - Present}
-
-\- Maintained and developed the Klamath county tourism website built on
+- Maintained and developed the Klamath county tourism website built on
 craft cms. - Improved SEO score to have the site show up on the first
 page of Google for desired keywords. - Configured infrastructure on AWS
 including automated deployment with TravisCI.
@@ -145,32 +137,91 @@ of time per report.
 
 ---
 
-**[Rochester Institute of Technology](https://rit.edu)**, Rochester, NY
-*Bachelor of Science*, Computer Science
-*GPA*: 3.56
+### **[Rochester Institute of Technology](https://rit.edu)**
 
-## COMPUTER SKILLS
+##### Rochester, NY
+
+##### *Bachelor of Science*, Computer Science
+
+##### *GPA*: 3.65
+
+## SKILLS
 
 ---
 
-**Languages**: Java, Python, JavaScript, SQL/TSQL, Go, C++, C, .NET
-(C\#).\
-**Dev Ops**: AWS, Cloud Formation, Docker, Jenkins, Digital Ocean,
-Ansible.\
-**Web Frameworks**: React, Express, Struts 2, Spring, Django, Middleman,
-Craft CMS.\
-**Testing Frameworks**: Mocha, Chai, J Unit, Selenium.\
-**Tools**: Git, vi\[m\], Webpack, Tmux.\
-**Development Processes**: Agile development, Test-driven development.\
-**E-commerce Platforms**: Stripe, Shopify.\
-**Marketing Tools**: Intercom, Google Analytics, Google Optimize.
+**Languages**:
+
+- JavaScript (NodeJS)
+- Python
+- Java
+- SQL/TSQL
+- Go
+- C++
+- C
+- .NET (C\#)
+
+**Architectures**:
+
+- Microservice
+- Nanoservice
+- Event-driven
+- MVC
+
+**Dev Ops**:
+
+- AWS
+- Cloud Formation
+- Docker
+- Jenkins
+- Digital Ocean
+- Ansible
+
+**Web Frameworks**:
+
+- React
+- Express
+- Struts 2
+- Spring
+- Django
+- Middleman
+- Craft CMS
+
+**Testing Frameworks**:
+
+- Mocha
+- Chai
+- J Unit
+- Selenium
+
+**Tooling**:
+
+- Git
+- vi\[m\]
+- Webpack
+- Tmux
+
+**Development Processes**:
+
+- Agile development
+- Test-driven development
+
+**E-commerce Platforms**:
+
+- Stripe
+- Shopify
+
+**Marketing Tools**:
+
+- Intercom
+- Google Analytics
+- Google Optimize
 
 ## References
 
 ---
 
-- Sean Kennedy - (503) 780-4542
 - Reid Bloomquist - (503) 481-4844
 - Dylan Smith - (503) 222-1442
+- Sean Kennedy - (503) 780-4542
 
 More references available upon request.

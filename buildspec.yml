@@ -14,7 +14,8 @@ phases:
     commands:
       # from markdown --> *
       # - pandoc ./resume.md -f markdown -o ./public/resume.html
-      - pandoc -s -c ./styles.css ./resume.md  -o ./public/index.html
+      # - pandoc -s -c ./styles.css ./resume.md  -o ./public/index.html
+      - pandoc -s --metadata title="Joseph Cuffney's Resume"  -c ./styles.css -H ./header.html ./resume.md  -o ./public/index.html
       - cp ./resume.md ./public/resume.md
       - cp ./styles.css ./public/styles.css
 
