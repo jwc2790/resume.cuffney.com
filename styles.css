@@ -5,9 +5,14 @@
 
  html {
   font-size: 100%;
-  overflow-y: hidden;
+  overflow-y: scroll;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+}
+
+::-webkit-scrollbar { 
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
 
 body {
@@ -17,6 +22,7 @@ body {
   line-height: 1.7;
   padding: 1em;
   margin: auto;
+  width: 42em;
   background: #000;
 }
 
