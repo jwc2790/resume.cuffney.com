@@ -113,7 +113,7 @@ can help improve application performance. As a result this reduced their
 main bundle size by 50% and cut page load times in half across the
 application.
 
-### [Discover Klamath.](https://discoverklamth.com)
+### [Discover Klamath.](https://discoverklamath.com/)
 
 ##### Portland, OR
 
