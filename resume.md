@@ -1,10 +1,13 @@
 # Joe Cuffney
 
 ## EXPERIENCE
+
 ---
 
 ### [Nike | Valiant Labs.](https://nike.com)
+
 ##### Portland, OR
+
 ##### Jun. 2017 - Present
 
 [Cultivator.](https://wearecultivator.com)
@@ -38,7 +41,9 @@ planning, backlog grooming, and estimation.
 acquisition efforts.
 
 ### [The Program PDX.](https://theprogrampdx.com)
+
 ##### Portland, OR
+
 ##### Oct. 2015 - Aug. 2017
 
 - Took technical ownership of projects to deliver digital experiences
@@ -109,8 +114,11 @@ main bundle size by 50% and cut page load times in half across the
 application.
 
 ### [Discover Klamath.](https://discoverklamth.com)
+
 ##### Portland, OR
+
 ##### Dec. 2016 - Present
+
 \employer{\href{http://discoverklamath.com}{Discover Klamath.}}
 \location{Portland, OR}
 \dates{Dec. 2016 - Present}
@@ -120,8 +128,10 @@ craft cms. - Improved SEO score to have the site show up on the first
 page of Google for desired keywords. - Configured infrastructure on AWS
 including automated deployment with TravisCI.
 
-### [Moog.](https://moog.com)
+### [Moog.](https://www.moog.com)
+
 ##### Buffalo, NY
+
 ##### Jan. 2014 - Aug. 2014
 
 - Developed a fault tree analysis web application which improved report
@@ -132,6 +142,7 @@ which is then run though an report engine to save engineers up to a day
 of time per report.
 
 ## EDUCATION
+
 ---
 
 **[Rochester Institute of Technology](https://rit.edu)**, Rochester, NY
@@ -139,6 +150,7 @@ of time per report.
 *GPA*: 3.56
 
 ## COMPUTER SKILLS
+
 ---
 
 **Languages**: Java, Python, JavaScript, SQL/TSQL, Go, C++, C, .NET
@@ -154,6 +166,7 @@ Craft CMS.\
 **Marketing Tools**: Intercom, Google Analytics, Google Optimize.
 
 ## References
+
 ---
 
 - Sean Kennedy - (503) 780-4542

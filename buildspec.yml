@@ -14,8 +14,9 @@ phases:
     commands:
       # from markdown --> *
       # - pandoc ./resume.md -f markdown -o ./public/resume.html
-      - pandoc ./resume.md -f markdown -o ./public/index.html
+      - pandoc -s -c ./styles.css ./resume.md  -o ./public/index.html
       - cp ./resume.md ./public/resume.md
+      - cp ./styles.css ./public/styles.css
 
   post_build:
     commands:
