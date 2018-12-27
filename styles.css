@@ -22,8 +22,15 @@ body {
   line-height: 1.7;
   padding: 1em;
   margin: auto;
-  width: 42em;
+  width: 100%;
+  max-width: 80vw;
   background: #000;
+}
+
+@media(min-width: 1024px) {
+  body {
+    width: 42em;
+  }
 }
 
 a {
