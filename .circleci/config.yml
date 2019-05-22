@@ -48,7 +48,7 @@ jobs:
       - run:
           name: sync build to s3
           command: |
-            aws s3 sync ./build s3://resume.cuffney.com --delete
+            aws s3 sync ./public s3://resume.cuffney.com --delete
 
       - run:
           name: Create CloudFront Invalidation
