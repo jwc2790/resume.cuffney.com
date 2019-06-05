@@ -79,38 +79,6 @@ commands:
 
 jobs:
 
-  dependencies:
-    <<: *defaults
-    steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: yarn install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-  build: 
-    <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-      - run: npm run build
-      - save_cache:
-          paths:
-            - build
-          key: v1-build-{{ checksum "package.json" }}
-
   validate_infra: 
     <<: *defaults
     steps:
@@ -157,9 +125,6 @@ workflows:
         context: AWS
       - deploy_infra_dev:
           context: AWS
-          requires: 
-            - dependencies
-            - build
           filters:
             branches:
               only: dev
@@ -172,9 +137,6 @@ workflows:
               only: dev
       - deploy_infra_prod:
           context: AWS
-          requires: 
-            - dependencies
-            - build
           filters:
             branches:
               only: master
