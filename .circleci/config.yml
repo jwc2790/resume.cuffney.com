@@ -1,46 +1,66 @@
-version: 2
+version: 2.1
 defaults: &defaults
   docker: 
     - image: jcuffney/node-ci-image:1.0.26
   working_directory: ~/rep
+commands:
+  deploy_infra:
+    description: deploys infrastructure
+    parameters:
+      stack_name:
+        type: string
+      domain_name:
+        type: string
+      hosted_zone_id:
+        type: string
+        default: Z17UESAG3QE29Y
+      acm_certificate_arn:
+        type: string
+        default: arn:aws:acm:us-east-1:255964265911:certificate/3a6c2c22-cb43-4c9b-9462-cf261b498eea
+      region:
+        type: string
+        default: us-east-1
 
-jobs:
+    steps:
+      - run: |
+          aws cloudformation deploy \
+          --stack-name << parameters.stack_name >> \
+          --template-file ./infra/template.json \
+          --region << parameters.region >> \
+          --capabilities CAPABILITY_IAM \
+          --no-fail-on-empty-changeset \
+          --capabilities CAPABILITY_NAMED_IAM \
+          --parameter-overrides \
+            DomainName=<< parameters.domain_name >> \
+            HostedZoneId=<< parameters.hosted_zone_id >> \
+            AcmCertificateArn=<< parameters.acm_certificate_arn >> 
 
   validate_cloudformation: 
-    <<: *defaults
+    description: validates infrastructures
+    parameters:
+      template_body_path:
+        type: string
+        default: ./infra/template.json
+
     steps:
       - checkout
-
       - run:
           name: validate cloudformation
           command: |
             aws cloudformation validate-template \
-              --template-body file://infra/template.json
+              --template-body file://<< parameters.template_body_path >> 
 
-  deploy_infra:
-    <<: *defaults
+  deploy: 
+    description: deploys static files
+    parameters:
+      domain_name:
+        type: string
+      cloudfront_distribution_id:
+        type: string
+
     steps:
       - checkout
-
-      - run:
-          name: deploy infrastructure
-          command: |
-            aws cloudformation deploy \
-              --stack-name resume-cuffney-com \
-              --template-file ./infra/template.json \
-              --region us-east-1 \
-              --capabilities CAPABILITY_IAM \
-              --no-fail-on-empty-changeset \
-              --parameter-overrides \
-                DomainName=resume.cuffney.com \
-                HostedZoneId=Z17UESAG3QE29Y \
-                AcmCertificateArn=arn:aws:acm:us-east-1:255964265911:certificate/3a6c2c22-cb43-4c9b-9462-cf261b498eea
-
-  deploy:
-    <<: *defaults
-    steps:
-      - checkout
-
+      
       - restore_cache:
           keys:
             - v1-build-{{ checksum "package.json" }}
@@ -48,30 +68,120 @@ jobs:
       - run:
           name: sync build to s3
           command: |
-            aws s3 sync ./public s3://resume.cuffney.com --delete
+            aws s3 sync ./build s3://<< parameters.domain_name >> --delete
 
       - run:
           name: Create CloudFront Invalidation
           command: |
             aws cloudfront create-invalidation \
-              --distribution-id $CLOUDFRONT_DISTRIBUTION_ID \
+              --distribution-id << parameters.cloudfront_distribution_id >> \
               --paths "/*"
 
+jobs:
+
+  dependencies:
+    <<: *defaults
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+  build: 
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run: npm run build
+      - save_cache:
+          paths:
+            - build
+          key: v1-build-{{ checksum "package.json" }}
+
+  validate_infra: 
+    <<: *defaults
+    steps:
+      - checkout
+      - validate_cloudformation
+
+  deploy_infra_dev:
+    <<: *defaults
+    steps:
+      - checkout
+      - deploy_infra:
+          stack_name: dev-resume-cuffney-com
+          domain_name:  dev-resume.cuffney.com
+
+  deploy_dev:
+    <<: *defaults
+    steps:
+      - checkout
+      - deploy:
+          domain_name: dev-resume.cuffney.com
+          cloudfront_distribution_id:  E27YFF7QP3RJ8
+
+  deploy_infra_prod:
+    <<: *defaults
+    steps:
+      - checkout
+      - deploy_infra:
+          stack_name: resume-cuffney-com
+          domain_name:  resume.cuffney.com
+
+  deploy_dev:
+    <<: *defaults
+    steps:
+      - checkout
+      - deploy:
+          domain_name: resume.cuffney.com
+          cloudfront_distribution_id: E1AIO2DIXOOFLC
 
 workflows:
   version: 2
   build_test_deploy:
     jobs:
-      - validate_cloudformation
-      - deploy_infra:
+      - validate_infra:
+        context: AWS
+      - deploy_infra_dev:
+          context: AWS
           requires: 
-            - validate_cloudformation
+            - dependencies
+            - build
+          filters:
+            branches:
+              only: dev
+      - deploy_dev:
+          context: AWS
+          requires:
+            - deploy_infra_dev
+          filters:
+            branches:
+              only: dev
+      - deploy_infra_prod:
+          context: AWS
+          requires: 
+            - dependencies
+            - build
           filters:
             branches:
               only: master
-      - deploy:
+      - deploy_prod:
+          context: AWS
           requires:
-            - deploy_infra
+            - deploy_infra_prod
           filters:
             branches:
               only: master
