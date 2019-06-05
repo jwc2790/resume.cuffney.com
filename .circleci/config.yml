@@ -126,6 +126,8 @@ workflows:
           context: AWS
       - deploy_infra_dev:
           context: AWS
+          requires:
+            - validate_infra
           filters:
             branches:
               only: dev
@@ -138,6 +140,8 @@ workflows:
               only: dev
       - deploy_infra_prod:
           context: AWS
+          requires:
+            - validate_infra
           filters:
             branches:
               only: master
