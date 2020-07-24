@@ -123,30 +123,30 @@ workflows:
   build_test_deploy:
     jobs:
       - validate_infra:
-          context: AWS
+          context: cuffney
       - deploy_infra_dev:
-          context: AWS
+          context: cuffney
           requires:
             - validate_infra
           filters:
             branches:
               only: dev
       - deploy_dev:
-          context: AWS
+          context: cuffney
           requires:
             - deploy_infra_dev
           filters:
             branches:
               only: dev
       - deploy_infra_prod:
-          context: AWS
+          context: cuffney
           requires:
             - validate_infra
           filters:
             branches:
               only: master
       - deploy_prod:
-          context: AWS
+          context: cuffney 
           requires:
             - deploy_infra_prod
           filters:
