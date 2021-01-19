@@ -10,3 +10,4 @@
 <!-- Markdown link & img dfn's -->
 [circle-ci-badge]: https://circleci.com/gh/jcuffney/resume.cuffney.com.svg?style=svg
 [circle-ci-url]: https://circleci.com/gh/jcuffney/resume.cuffney.com
+
