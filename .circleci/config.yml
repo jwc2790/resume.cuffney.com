@@ -20,8 +20,8 @@ jobs:
       - aws-cli/setup
       - jq/install
       - run: |
-          DISTRIBUTION_ID=$(aws ssm get-parameter --name /onset/${CIRCLE_BRANCH}/website/distribution/id | jq -r '.Parameter.Value')
-          SOURCE_BUCKET_NAME=$(aws ssm get-parameter --name /onset/${CIRCLE_BRANCH}/website/source-bucket/name | jq -r '.Parameter.Value')
+          DISTRIBUTION_ID=$(aws ssm get-parameter --name /cuffney/${CIRCLE_BRANCH}/resume/distribution/id | jq -r '.Parameter.Value')
+          SOURCE_BUCKET_NAME=$(aws ssm get-parameter --name /cuffney/${CIRCLE_BRANCH}/resume/source-bucket/name | jq -r '.Parameter.Value')
           aws s3 sync ./build s3://$SOURCE_BUCKET_NAME --delete
           aws cloudfront create-invalidation \
             --distribution-id $DISTRIBUTION_ID \
