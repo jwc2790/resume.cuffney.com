@@ -22,7 +22,7 @@ jobs:
       - run: |
           DISTRIBUTION_ID=$(aws ssm get-parameter --name /cuffney/${CIRCLE_BRANCH}/resume/distribution/id | jq -r '.Parameter.Value')
           SOURCE_BUCKET_NAME=$(aws ssm get-parameter --name /cuffney/${CIRCLE_BRANCH}/resume/source-bucket/name | jq -r '.Parameter.Value')
-          aws s3 sync ./build s3://$SOURCE_BUCKET_NAME --delete
+          aws s3 sync ./public s3://$SOURCE_BUCKET_NAME --delete
           aws cloudfront create-invalidation \
             --distribution-id $DISTRIBUTION_ID \
             --paths "/*"
